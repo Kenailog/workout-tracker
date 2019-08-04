@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/update{id}", name="update.")
+ * @Route("/update/{id}", name="update.")
  */
 class UpdateController extends AbstractController
 {

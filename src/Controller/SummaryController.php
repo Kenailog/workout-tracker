@@ -15,11 +15,14 @@ class SummaryController extends AbstractController
     {
         $activities = $this->getDoctrine()->getRepository(Activity::class)->findAll();
         $distance = 0;
+        $kcal = 0;
         foreach ($activities as $activity) {
             $distance += $activity->getDistance();
+            $kcal += $activity->getKcal();
         }
         return $this->render('summary/index.html.twig', [
             'distance' => $distance,
+            'kcal' => $kcal,
         ]);
     }
 }

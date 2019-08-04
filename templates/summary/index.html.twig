@@ -4,8 +4,19 @@
 
 {% block body %}
 <div class="container">
-    <h2>
-        Total distance {{ distance }}
-    </h2>
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">Total distance</th>
+            <th scope="col">Total kcal</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> {{ distance / 100 }} km </td>
+                <td> {{ kcal }} </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 {% endblock %}
