@@ -13,25 +13,16 @@ class ShowController extends AbstractController
      */
     public function index()
     {
-        // $em = $this->getDoctrine()->getManager();
-
-        // $activity = new Activity();
-        // $activity->setType("run")->setDuration(new \DateTime("01:00:25"))->setKcal(825)->setDate(new \DateTime('12-17-2019'));
-        // $em->persist($activity);
-        // $em->flush();
-
+        $records = $this->getDoctrine()->getRepository(Activity::class)->findAll();
         return $this->render('show/index.html.twig', [
-            'type' => 'run',
-            'duration' => '01:00:25',
-            'kcal' => 825,
-            'date' => '12-17-2019',
+            'records' => $records
         ]);
     }
 
     /**
      * @Route("/show/{id}", name="show_details")
      */
-    public function details()
+    public function details($id)
     {
         return $this->render('show/details.html.twig', [
             'type' => 'run',

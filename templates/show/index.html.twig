@@ -15,27 +15,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>{{ type }}</td>
-                <td>{{ duration }}</td>
-                <td>{{ kcal }}</td>
-                <td>{{ date }}</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-            </tr>
+            {% for record in records %}
+                <tr>
+                    <th scope="row">1</th>
+                    <td>{{ record.type }}</td>
+                    <td>{{ record.duration }}</td>
+                    <td>{{ record.kcal }}</td>
+                    <td>{{ record.date }}</td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 {% endblock %}

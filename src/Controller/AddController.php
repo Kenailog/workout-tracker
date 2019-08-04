@@ -19,7 +19,7 @@ class AddController extends AbstractController
         $form = $this->createForm(NewActivityType::class, $activity);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($activity);
             $entityManager->flush();
