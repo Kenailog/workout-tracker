@@ -23,7 +23,7 @@ class AddController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($activity);
             $entityManager->flush();
-            return $this->redirect($this->generateUrl('show'));
+            return $this->redirectToRoute('show');
         }
 
         return $this->render('add/index.html.twig', [

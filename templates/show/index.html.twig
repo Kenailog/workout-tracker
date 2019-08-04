@@ -9,9 +9,11 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Activity</th>
+                <th scope="col">Distance</th>
                 <th scope="col">Duration</th>
                 <th scope="col">kcal</th>
                 <th scope="col">Date</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -19,9 +21,11 @@
                 <tr>
                     <th scope="row">1</th>
                     <td>{{ record.type }}</td>
-                    <td>{{ record.duration }}</td>
+                    <td>{{ record.distance }}</td>
+                    <td>{{ record.duration|date('H:i:s') }}</td>
                     <td>{{ record.kcal }}</td>
-                    <td>{{ record.date }}</td>
+                    <td>{{ record.date|date('Y-m-d') }}</td>
+                    <td><a href="{{ path('edit', {'id' : record.id}) }}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Modify</a></td>
                 </tr>
             {% endfor %}
         </tbody>

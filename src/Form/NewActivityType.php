@@ -14,6 +14,7 @@ class NewActivityType extends AbstractType
     {
         $builder
             ->add('type')
+            ->add('distance')
             ->add('duration')
             ->add('kcal')
             ->add('date')
