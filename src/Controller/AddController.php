@@ -4,16 +4,30 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Activity;
+use App\Form\NewActivityType;
+use Symfony\Component\HttpFoundation\Request;
 
 class AddController extends AbstractController
 {
     /**
      * @Route("/add", name="add")
      */
-    public function index()
+    public function index(Request $request)
     {
+        $activity = new Activity();
+        $form = $this->createForm(NewActivityType::class, $activity);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($activity);
+            $entityManager->flush();
+            return $this->redirect($this->generateUrl('show'));
+        }
+
         return $this->render('add/index.html.twig', [
-            'controller_name' => 'AddController',
+            'form' => $form->createView(),
         ]);
     }
 }
