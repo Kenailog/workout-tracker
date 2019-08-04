@@ -19,14 +19,14 @@
         <tbody>
             {% for record in records %}
                 <tr>
-                    <th scope="row">1</th>
+                    <th scope="row">{{ record.id }}</th>
                     <td>{{ record.type }}</td>
-                    <td>{{ record.distance }}</td>
+                    <td>{{ record.distance / 100 }} km</td>
                     <td>{{ record.duration|date('H:i:s') }}</td>
                     <td>{{ record.kcal }}</td>
                     <td>{{ record.date|date('Y-m-d') }}</td>
                     <td><a href="{{ path('update.edit', {'id' : record.id}) }}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Modify</a>
-                        <a href="{{ path('update.remove', {'id' : record.id}) }}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Remove</a>
+                        <a href="{{ path('update.remove', {'id' : record.id}) }}" class="btn btn btn-danger btn-secondary btn-lg active" role="button" aria-pressed="true">Remove</a>
                     </td>
                 </tr>
             {% endfor %}
