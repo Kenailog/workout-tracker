@@ -1,4 +1,2 @@
-# workout-tracker (WORK IN PROGRESS)
-App for tracking workout history
-
-You can add, delete, modify and search records.
+# workout-tracker
+CRUD App for tracking workout history.
